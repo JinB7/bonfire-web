@@ -1,0 +1,320 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans:
+    var(--font-pretendard), "Pretendard Variable", Pretendard, system-ui,
+    sans-serif;
+  --font-sans--font-feature-settings: "calt", "kern", "liga", "ss03";
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-xs: var(--rounded-xs);
+  --radius-sm: var(--rounded-sm);
+  --radius-md: var(--rounded-md);
+  --radius-lg: var(--rounded-lg);
+  --radius-xl: var(--rounded-xl);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+ * Bonfire → Tailwind 유틸리티. 우리 코드는 이 이름을 쓴다.
+ * 색 이름 규칙: 토큰 text-* → fg-*, border-* → line-* (text-text-primary 같은 겹침을 피한다).
+ * 간격은 Tailwind 기본 4px 스텝을 그대로 쓴다 (spacing-md 12px = p-3).
+ * --spacing-md 같은 이름을 @theme에 넣으면 max-w-md가 12px로 바뀌어서 넣지 않는다.
+ */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-surface-selected: var(--surface-selected);
+  --color-primary-pressed: var(--primary-pressed);
+  --color-on-primary: var(--on-primary);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-line-selected: var(--border-selected);
+  --color-line-voice: var(--border-voice);
+  --color-fg: var(--text-primary);
+  --color-fg-secondary: var(--text-secondary);
+  --color-fg-tertiary: var(--text-tertiary);
+  --color-fg-disabled: var(--text-disabled);
+  --color-focus-ring: var(--focus-ring);
+  --color-danger: var(--danger);
+  --color-on-danger: var(--on-danger);
+  --color-scrim: var(--scrim);
+  --color-image-badge: var(--image-badge);
+  --color-on-image: var(--on-image);
+  --color-naver: var(--naver);
+  --color-on-naver: var(--on-naver);
+  --color-kakao: var(--kakao);
+  --color-on-kakao: var(--on-kakao);
+
+  /* 글자 스타일: 크기·줄간격·굵기·자간을 한 클래스에 (tokens.json type.groups 값) */
+  --text-title-lg: 32px;
+  --text-title-lg--line-height: 1.4;
+  --text-title-lg--font-weight: 600;
+  --text-title-lg--letter-spacing: -0.0125em;
+  --text-title-md: 24px;
+  --text-title-md--line-height: 1.4;
+  --text-title-md--font-weight: 600;
+  --text-title-md--letter-spacing: -0.0125em;
+  --text-heading-lg: 20px;
+  --text-heading-lg--line-height: 1.4;
+  --text-heading-lg--font-weight: 600;
+  --text-heading-lg--letter-spacing: -0.0125em;
+  --text-heading-md: 18px;
+  --text-heading-md--line-height: 1.4;
+  --text-heading-md--font-weight: 600;
+  --text-heading-md--letter-spacing: -0.0125em;
+  --text-quote-lg: 18px;
+  --text-quote-lg--line-height: 1.6;
+  --text-quote-lg--font-weight: 400;
+  --text-quote-lg--letter-spacing: 0;
+  --text-quote-sm: 15px;
+  --text-quote-sm--line-height: 1.6;
+  --text-quote-sm--font-weight: 400;
+  --text-quote-sm--letter-spacing: 0;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
+  --text-body-md--font-weight: 400;
+  --text-body-md--letter-spacing: 0;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.6;
+  --text-body-sm--font-weight: 400;
+  --text-body-sm--letter-spacing: 0;
+  --text-label-md: 14px;
+  --text-label-md--line-height: 1.4;
+  --text-label-md--font-weight: 500;
+  --text-label-md--letter-spacing: 0;
+  --text-caption: 13px;
+  --text-caption--line-height: 1.5;
+  --text-caption--font-weight: 400;
+  --text-caption--letter-spacing: 0;
+  --text-caption-sm: 12px;
+  --text-caption-sm--line-height: 1.4;
+  --text-caption-sm--font-weight: 500;
+  --text-caption-sm--letter-spacing: 0.015em;
+
+  /* 컨트롤 높이 h-control-*, 아이콘 크기 size-icon-* */
+  --spacing-control-sm: var(--control-sm);
+  --spacing-control-md: var(--control-md);
+  --spacing-control-lg: var(--control-lg);
+  --spacing-control-xl: var(--control-xl);
+  --spacing-icon-xs: var(--icon-xs);
+  --spacing-icon-sm: var(--icon-sm);
+  --spacing-icon-md: var(--icon-md);
+  --spacing-icon-lg: var(--icon-lg);
+
+  /* 모션 duration-fast, duration-normal */
+  --transition-duration-fast: var(--duration-fast);
+  --transition-duration-normal: var(--duration-normal);
+}
+
+/* Tailwind 기본값과 이름은 같고 값이 다른 토큰은 Bonfire 값으로 덮는다 */
+@theme {
+  --leading-tight: 1.4;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --tracking-tight: -0.0125em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.015em;
+  --ease-out: ease-out;
+}
+
+/* Bonfire 토큰 — bonfire.tokens.json의 이름과 값 그대로. 다크 전용. */
+:root {
+  color-scheme: dark;
+
+  /* 색 · 프리미티브 (컴포넌트에서 직접 쓰지 않는다) */
+  --gray-50: #e8e8ea;
+  --gray-200: #cbcbcc;
+  --gray-400: #a1a1a2;
+  --gray-500: #6f7071;
+  --gray-600: #4f5055;
+  --gray-700: #35363a;
+  --gray-750: #292c2d;
+  --gray-800: #1e1f22;
+  --gray-850: #181919;
+  --gray-900: #151515;
+  --gray-950: #111214;
+  --white: #ffffff;
+  --black: #000000;
+  --blue-400: #57c1ff;
+  --red-300: #ff7a7a;
+  --naver-green: #03c75a;
+  --kakao-yellow: #fee500;
+
+  /* 색 · 시멘틱 (--primary, --border는 shadcn 변수와 이름·역할이 같아 함께 쓴다) */
+  --primary: var(--white);
+  --primary-pressed: var(--gray-50);
+  --on-primary: var(--black);
+  --canvas: var(--gray-950);
+  --surface: var(--gray-900);
+  --surface-elevated: var(--gray-850);
+  --surface-overlay: var(--gray-800);
+  --surface-selected: var(--gray-700);
+  --border: var(--gray-750);
+  --border-strong: var(--gray-700);
+  --border-selected: var(--gray-500);
+  --border-voice: var(--gray-600);
+  --text-primary: var(--gray-50);
+  --text-secondary: var(--gray-200);
+  --text-tertiary: var(--gray-400);
+  --text-disabled: var(--gray-500);
+  --focus-ring: var(--blue-400);
+  --danger: var(--red-300);
+  --on-danger: var(--black);
+  --scrim: rgba(0, 0, 0, 0.64);
+  --image-badge: rgba(17, 18, 20, 0.72);
+  --on-image: var(--white);
+  --naver: var(--naver-green);
+  --on-naver: var(--white);
+  --kakao: var(--kakao-yellow);
+  --on-kakao: rgba(0, 0, 0, 0.85);
+
+  /* 간격 (Tailwind 스텝: xxs 0.5 · xs 1 · sm 2 · md 3 · lg 4 · xl 6 · xxl 8 · 3xl 12 · 4xl 16) */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+
+  /* 모서리 */
+  --rounded-none: 0px;
+  --rounded-xs: 4px;
+  --rounded-sm: 6px;
+  --rounded-md: 8px;
+  --rounded-lg: 10px;
+  --rounded-xl: 16px;
+  --rounded-full: 9999px;
+
+  /* 글자 크기 · 굵기 */
+  --font-size-1: 12px;
+  --font-size-2: 13px;
+  --font-size-3: 14px;
+  --font-size-4: 15px;
+  --font-size-5: 16px;
+  --font-size-6: 18px;
+  --font-size-7: 20px;
+  --font-size-8: 24px;
+  --font-size-9: 32px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* 컨트롤 높이 · 아이콘 · 테두리 두께 · 모션 */
+  --control-sm: 32px;
+  --control-md: 40px;
+  --control-lg: 44px;
+  --control-xl: 48px;
+  --icon-xs: 12px;
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 32px;
+  --stroke-1: 1px;
+  --stroke-2: 2px;
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+}
+
+/* shadcn 변수 → Bonfire 토큰. shadcn 컴포넌트도 Bonfire 색으로 그려진다. */
+:root {
+  --background: var(--canvas);
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface-overlay);
+  --popover-foreground: var(--text-primary);
+  --primary-foreground: var(--on-primary);
+  --secondary: var(--surface-selected);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--surface-selected);
+  --muted-foreground: var(--text-tertiary);
+  --accent: var(--surface-selected);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--danger);
+  --input: var(--border-strong);
+  --ring: var(--focus-ring);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: var(--rounded-lg);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    word-break: keep-all;
+  }
+  html {
+    @apply font-sans;
+  }
+}

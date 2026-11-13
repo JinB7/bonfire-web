@@ -1,0 +1,670 @@
+{
+  "name": "Bonfire",
+  "version": 1,
+  "color": {
+    "note": "프리미티브(실제 값) → 시멘틱(프리미티브만 참조, 투명도 색 3개 예외) → 컴포넌트(시멘틱만 참조). 다크 전용.",
+    "themes": [
+      {
+        "id": "dark",
+        "name": "Dark"
+      }
+    ],
+    "tokens": [
+      {
+        "name": "gray-50",
+        "value": "#e8e8ea",
+        "usage": "프리미티브. text-primary, primary-pressed가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-200",
+        "value": "#cbcbcc",
+        "usage": "프리미티브. text-secondary가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-400",
+        "value": "#a1a1a2",
+        "usage": "프리미티브. text-tertiary가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-500",
+        "value": "#6f7071",
+        "usage": "프리미티브. text-disabled, border-selected가 참조한다(값이 같아도 역할이 달라 토큰을 나눈다). 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-600",
+        "value": "#4f5055",
+        "usage": "프리미티브. border-voice가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-700",
+        "value": "#35363a",
+        "usage": "프리미티브. surface-selected, border-strong이 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-750",
+        "value": "#292c2d",
+        "usage": "프리미티브. border가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-800",
+        "value": "#1e1f22",
+        "usage": "프리미티브. surface-overlay가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-850",
+        "value": "#181919",
+        "usage": "프리미티브. surface-elevated가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-900",
+        "value": "#151515",
+        "usage": "프리미티브. surface가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "gray-950",
+        "value": "#111214",
+        "usage": "프리미티브. canvas가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "white",
+        "value": "#ffffff",
+        "usage": "프리미티브. primary, on-image, on-naver가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "black",
+        "value": "#000000",
+        "usage": "프리미티브. on-primary, on-danger가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "blue-400",
+        "value": "#57c1ff",
+        "usage": "프리미티브. focus-ring이 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "red-300",
+        "value": "#ff7a7a",
+        "usage": "프리미티브. danger가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "naver-green",
+        "value": "#03c75a",
+        "usage": "프리미티브(네이버 가이드 색). naver가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "kakao-yellow",
+        "value": "#fee500",
+        "usage": "프리미티브(카카오 가이드 색). kakao가 참조한다. 컴포넌트에서 직접 쓰지 않는다."
+      },
+      {
+        "name": "primary",
+        "value": "{white}",
+        "usage": "button-primary 배경. 한 화면에 하나뿐인 가장 중요한 행동, 탭 활성 밑줄."
+      },
+      {
+        "name": "primary-pressed",
+        "value": "{gray-50}",
+        "usage": "button-primary를 누른 상태의 배경."
+      },
+      {
+        "name": "on-primary",
+        "value": "{black}",
+        "usage": "primary·primary-pressed 위 글자와 아이콘 (21:1 · 17.2:1)."
+      },
+      {
+        "name": "canvas",
+        "value": "{gray-950}",
+        "usage": "페이지 배경(깊이 0), 헤더 배경. 비활성 primary 버튼과 비활성 입력창의 배경."
+      },
+      {
+        "name": "surface",
+        "value": "{gray-900}",
+        "usage": "놓인 것: 목록 카드, 편집 게임 행 (깊이 1, 항상 1px border와 함께)."
+      },
+      {
+        "name": "surface-elevated",
+        "value": "{gray-850}",
+        "usage": "입력: text-input·textarea 내부, 카드 뒤 먼 판(list-card-stack-far)."
+      },
+      {
+        "name": "surface-overlay",
+        "value": "{gray-800}",
+        "usage": "떠 있는 것: 팝오버, 자동완성, 다이얼로그, 토스트(깊이 2). 카드 hover, 필터 칩 hover, 가까운 판, 아바타 배경, 드래그 중인 편집 행."
+      },
+      {
+        "name": "surface-selected",
+        "value": "{gray-700}",
+        "usage": "선택·활성 배경: 선택된 칩, 저장됨, 활성 목록 항목. 투명 배경 요소(secondary·ghost·icon 버튼)의 hover와 누름."
+      },
+      {
+        "name": "border",
+        "value": "{gray-750}",
+        "usage": "기본 테두리와 구분선: 카드, 헤더 아래, 탭 줄, 게임 행 사이. 스켈레톤 면, 태그 라벨 배경, 이미지 로딩 면. 면 대비 1.17–1.33:1로 경계 표시용이며 상태를 나타내지 않는다."
+      },
+      {
+        "name": "border-strong",
+        "value": "{gray-700}",
+        "usage": "누를 수 있는 것의 테두리: 버튼, 입력창, 칩, 저장 토글, 패널. 원본 값 유지 — 면 대비 1.37–1.55:1로 WCAG 비텍스트 3:1에 못 미친다. 상태는 border-selected·focus-ring이 맡는다."
+      },
+      {
+        "name": "border-selected",
+        "value": "{gray-500}",
+        "usage": "선택된 칩, 저장됨, 드래그 중 테두리. canvas 3.78:1, surface-overlay 3.32:1."
+      },
+      {
+        "name": "border-voice",
+        "value": "{gray-600}",
+        "usage": "사람의 말(voice quote) 왼쪽 2px 세로줄 전용. canvas 2.33:1 — 글자와 함께 쓰는 표시선이다."
+      },
+      {
+        "name": "text-primary",
+        "value": "{gray-50}",
+        "usage": "제목, 사람의 말, 입력한 글자. canvas 15.3:1 · surface 14.9:1 · surface-overlay 13.5:1 · surface-selected 9.9:1."
+      },
+      {
+        "name": "text-secondary",
+        "value": "{gray-200}",
+        "usage": "보조 본문, 태그, 메뉴 항목, ghost 버튼, 기본 필터 칩. 모든 면에서 7.4:1 이상 (surface-selected 7.4:1)."
+      },
+      {
+        "name": "text-tertiary",
+        "value": "{gray-400}",
+        "usage": "메타 정보, 게임 설명, 안내 문구, placeholder, 비활성 탭, 아이콘 버튼 아이콘. canvas 7.3:1 · surface-overlay 6.4:1 · surface-selected 4.67:1."
+      },
+      {
+        "name": "text-disabled",
+        "value": "{gray-500}",
+        "usage": "비활성 글자에만 쓴다. canvas 3.78:1이라 본문 금지(원본 값 유지)."
+      },
+      {
+        "name": "focus-ring",
+        "value": "{blue-400}",
+        "usage": "키보드 포커스 링(2px, 바깥 2px 간격)과 포커스된 입력창 테두리. canvas 9.35:1, surface-overlay 8.2:1."
+      },
+      {
+        "name": "danger",
+        "value": "{red-300}",
+        "usage": "삭제·에러: button-danger 배경, 에러 입력 테두리, 에러 안내 글자, 삭제 메뉴 항목. 글자로 canvas 7.4:1 · surface-overlay 6.5:1 · 활성 목록 항목(surface-selected) 4.78:1."
+      },
+      {
+        "name": "on-danger",
+        "value": "{black}",
+        "usage": "danger 위 글자. 채운 버튼의 글자는 검정 (8.3:1)."
+      },
+      {
+        "name": "scrim",
+        "value": "rgba(0,0,0,0.64)",
+        "usage": "다이얼로그 뒤를 덮는 막(깊이 3). 투명도 색이라 예외적으로 값을 직접 둔다."
+      },
+      {
+        "name": "image-badge",
+        "value": "rgba(17,18,20,0.72)",
+        "usage": "게임 이미지 위 count-badge 배경. 흰 이미지 위에서도 on-image 7.5:1. 투명도 색이라 예외적으로 값을 직접 둔다."
+      },
+      {
+        "name": "on-image",
+        "value": "{white}",
+        "usage": "image-badge 위 글자와 아이콘."
+      },
+      {
+        "name": "naver",
+        "value": "{naver-green}",
+        "usage": "네이버 로그인 버튼 배경 전용 (네이버 가이드 색)."
+      },
+      {
+        "name": "on-naver",
+        "value": "{white}",
+        "usage": "naver 위 글자. 원본 값 유지 — 2.25:1로 4.5:1에 못 미친다. 네이버 공식 버튼 가이드를 따르는 예외."
+      },
+      {
+        "name": "kakao",
+        "value": "{kakao-yellow}",
+        "usage": "카카오 로그인 버튼 배경 전용 (카카오 가이드 색)."
+      },
+      {
+        "name": "on-kakao",
+        "value": "rgba(0,0,0,0.85)",
+        "usage": "kakao 위 글자 (85% 검정, 12.5:1). 투명도 색이라 예외적으로 값을 직접 둔다."
+      }
+    ]
+  },
+  "type": {
+    "fonts": [
+      {
+        "family": "Pretendard Variable",
+        "file": "fonts/PretendardVariable.woff2",
+        "weight": "45 930",
+        "style": "normal"
+      }
+    ],
+    "families": {
+      "sans": "\"Pretendard Variable\", Pretendard, system-ui, sans-serif"
+    },
+    "groups": [
+      {
+        "name": "제목",
+        "family": "sans",
+        "note": "영문과 한글 모두 Pretendard로 쓴다. font-feature-settings \"calt\", \"kern\", \"liga\", \"ss03\"와 word-break: keep-all을 함께 쓴다(bundle.css).",
+        "styles": [
+          {
+            "name": "title-lg",
+            "fontSize": "32px",
+            "fontWeight": 600,
+            "lineHeight": 1.4,
+            "letterSpacing": "-0.0125em",
+            "sample": "퇴근하고 30분, 머리 비우고 하는 게임",
+            "usage": "상세 페이지 제목 (데스크톱·태블릿)."
+          },
+          {
+            "name": "title-md",
+            "fontSize": "24px",
+            "fontWeight": 600,
+            "lineHeight": 1.4,
+            "letterSpacing": "-0.0125em",
+            "sample": "내가 만든 목록",
+            "usage": "페이지 제목, 모바일 상세 제목."
+          },
+          {
+            "name": "heading-lg",
+            "fontSize": "20px",
+            "fontWeight": 600,
+            "lineHeight": 1.4,
+            "letterSpacing": "-0.0125em",
+            "sample": "이 목록의 게임",
+            "usage": "섹션 제목."
+          },
+          {
+            "name": "heading-md",
+            "fontSize": "18px",
+            "fontWeight": 600,
+            "lineHeight": 1.4,
+            "letterSpacing": "-0.0125em",
+            "sample": "발라트로",
+            "usage": "카드 제목, 게임 이름, 다이얼로그 제목, 헤더 워드마크, 빈 화면 제목."
+          }
+        ]
+      },
+      {
+        "name": "사람의 말",
+        "family": "sans",
+        "note": "추천한 사람이 직접 쓴 글(한 줄 소개, 추천 코멘트)에만 쓴다. 항상 text-primary + 왼쪽 2px border-voice.",
+        "styles": [
+          {
+            "name": "quote-lg",
+            "fontSize": "18px",
+            "fontWeight": 400,
+            "lineHeight": 1.6,
+            "letterSpacing": "0",
+            "sample": "카드 몇 장 섞다 보면 30분이 금방 가요. 생각은 덜 하고 손은 바쁘게.",
+            "usage": "voice-quote-lg: 상세 화면의 한 줄 소개와 추천 코멘트."
+          },
+          {
+            "name": "quote-sm",
+            "fontSize": "15px",
+            "fontWeight": 400,
+            "lineHeight": 1.6,
+            "letterSpacing": "0",
+            "sample": "머리 쓰기 싫은 날 꺼내는 게임만 모았어요.",
+            "usage": "voice-quote-sm: 목록 카드의 한 줄 소개."
+          }
+        ]
+      },
+      {
+        "name": "본문·라벨",
+        "family": "sans",
+        "note": "정보는 body-sm·caption + text-tertiary로 작게 쓴다. 입력창 글자는 16px(body-md) 이상 — iOS 자동 확대 방지. caption-sm에는 \"tnum\"을 더한다.",
+        "styles": [
+          {
+            "name": "body-md",
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "lineHeight": 1.6,
+            "letterSpacing": "0",
+            "sample": "목록 제목을 입력해주세요",
+            "usage": "본문, 입력창 글자."
+          },
+          {
+            "name": "body-sm",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": 1.6,
+            "letterSpacing": "0",
+            "sample": "덱을 쌓아 점수를 불리는 로그라이크 카드 게임.",
+            "usage": "게임 설명, 다이얼로그 본문, 토스트."
+          },
+          {
+            "name": "label-md",
+            "fontSize": "14px",
+            "fontWeight": 500,
+            "lineHeight": 1.4,
+            "letterSpacing": "0",
+            "sample": "목록 만들기",
+            "usage": "버튼, 탭, 칩, 메뉴, 필드 라벨."
+          },
+          {
+            "name": "caption",
+            "fontSize": "13px",
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "letterSpacing": "0",
+            "sample": "발라트로, 하데스 외 4개",
+            "usage": "메타, 안내·에러 문구, 카운터, 태그 라벨."
+          },
+          {
+            "name": "caption-sm",
+            "fontSize": "12px",
+            "fontWeight": 500,
+            "lineHeight": 1.4,
+            "letterSpacing": "0.015em",
+            "sample": "게임 12개",
+            "usage": "숫자 배지, 아바타 글자."
+          }
+        ]
+      }
+    ]
+  },
+  "spacing": {
+    "note": "4px 단위. 컴포넌트가 이 스케일을 직접 참조한다(시멘틱 간격 토큰 없음). DESIGN.md의 {spacing.xs}가 spacing-xs다.",
+    "tokens": [
+      {
+        "name": "spacing-xxs",
+        "value": "2px",
+        "usage": "태그 라벨·숫자 배지의 위아래 안쪽."
+      },
+      {
+        "name": "spacing-xs",
+        "value": "4px",
+        "usage": "탭 좌우 안쪽, 팝오버 안쪽, 팝오버와 기준 요소 사이, 가까운 판이 올라오는 높이, 아이콘과 글자 사이."
+      },
+      {
+        "name": "spacing-sm",
+        "value": "8px",
+        "usage": "태그·배지 좌우 안쪽, 배지의 이미지 안쪽 거리, 가까운 판 좌우 안쪽, 먼 판 높이, 편집 행 사이, 소셜 버튼 사이."
+      },
+      {
+        "name": "spacing-md",
+        "value": "12px",
+        "usage": "목록 카드·편집 행 안쪽, 칩·ghost·저장 토글·작은 버튼 좌우 안쪽, 입력창 좌우 안쪽, voice quote 왼쪽 안쪽, 토스트 위아래."
+      },
+      {
+        "name": "spacing-lg",
+        "value": "16px",
+        "usage": "버튼 좌우 안쪽, 먼 판 좌우 안쪽, 토스트 좌우, 빈 화면 좌우, 모바일 페이지·헤더 좌우 여백."
+      },
+      {
+        "name": "spacing-xl",
+        "value": "24px",
+        "usage": "게임 행 위아래, 다이얼로그 안쪽, 탭 사이, 태블릿 페이지·헤더 좌우 여백."
+      },
+      {
+        "name": "spacing-xxl",
+        "value": "32px",
+        "usage": "데스크톱 페이지·헤더 좌우 여백."
+      },
+      {
+        "name": "spacing-3xl",
+        "value": "48px",
+        "usage": "빈 화면 위아래 안쪽."
+      },
+      {
+        "name": "spacing-4xl",
+        "value": "64px",
+        "usage": "가장 큰 구획 사이."
+      }
+    ]
+  },
+  "radius": {
+    "note": "누를 수 있는 칩은 pill(rounded-full), 읽기 전용 태그는 각진 라벨(rounded-xs). DESIGN.md의 {rounded.md}가 rounded-md다.",
+    "tokens": [
+      {
+        "name": "rounded-none",
+        "value": "0px",
+        "usage": "모서리 없음."
+      },
+      {
+        "name": "rounded-xs",
+        "value": "4px",
+        "usage": "태그 라벨, 숫자 배지."
+      },
+      {
+        "name": "rounded-sm",
+        "value": "6px",
+        "usage": "썸네일, 목록 항목, 스켈레톤."
+      },
+      {
+        "name": "rounded-md",
+        "value": "8px",
+        "usage": "버튼, 입력창, 카드 이미지, 편집 행, 카드 뒤 판, 아이콘 버튼."
+      },
+      {
+        "name": "rounded-lg",
+        "value": "10px",
+        "usage": "목록 카드, 팝오버, 토스트."
+      },
+      {
+        "name": "rounded-xl",
+        "value": "16px",
+        "usage": "다이얼로그."
+      },
+      {
+        "name": "rounded-full",
+        "value": "9999px",
+        "usage": "필터 칩, 아바타."
+      }
+    ]
+  },
+  "fontSize": {
+    "note": "글자 크기 스케일. Tailwind 기본 이름과 겹치지 않게 번호를 쓴다.",
+    "tokens": [
+      {
+        "name": "font-size-1",
+        "value": "12px",
+        "usage": "caption-sm."
+      },
+      {
+        "name": "font-size-2",
+        "value": "13px",
+        "usage": "caption."
+      },
+      {
+        "name": "font-size-3",
+        "value": "14px",
+        "usage": "body-sm, label-md."
+      },
+      {
+        "name": "font-size-4",
+        "value": "15px",
+        "usage": "quote-sm."
+      },
+      {
+        "name": "font-size-5",
+        "value": "16px",
+        "usage": "body-md."
+      },
+      {
+        "name": "font-size-6",
+        "value": "18px",
+        "usage": "heading-md, quote-lg."
+      },
+      {
+        "name": "font-size-7",
+        "value": "20px",
+        "usage": "heading-lg."
+      },
+      {
+        "name": "font-size-8",
+        "value": "24px",
+        "usage": "title-md."
+      },
+      {
+        "name": "font-size-9",
+        "value": "32px",
+        "usage": "title-lg."
+      }
+    ]
+  },
+  "fontWeight": {
+    "note": "굵기는 세 단계뿐이다.",
+    "tokens": [
+      {
+        "name": "weight-regular",
+        "value": "400",
+        "usage": "본문, 사람의 말, caption."
+      },
+      {
+        "name": "weight-medium",
+        "value": "500",
+        "usage": "label-md, caption-sm."
+      },
+      {
+        "name": "weight-semibold",
+        "value": "600",
+        "usage": "제목, 헤딩."
+      }
+    ]
+  },
+  "lineHeight": {
+    "note": "줄간격.",
+    "tokens": [
+      {
+        "name": "leading-tight",
+        "value": "1.4",
+        "usage": "제목, 헤딩, 라벨, caption-sm."
+      },
+      {
+        "name": "leading-normal",
+        "value": "1.5",
+        "usage": "caption."
+      },
+      {
+        "name": "leading-relaxed",
+        "value": "1.6",
+        "usage": "본문, 사람의 말."
+      }
+    ]
+  },
+  "letterSpacing": {
+    "note": "em이라 글자 크기에 비례한다. 한글에 양수 자간을 쓰지 않는다.",
+    "tokens": [
+      {
+        "name": "tracking-tight",
+        "value": "-0.0125em",
+        "usage": "제목, 헤딩."
+      },
+      {
+        "name": "tracking-normal",
+        "value": "0",
+        "usage": "본문, 사람의 말, 라벨, caption."
+      },
+      {
+        "name": "tracking-wide",
+        "value": "0.015em",
+        "usage": "숫자 배지(caption-sm)에만."
+      }
+    ]
+  },
+  "controlHeight": {
+    "note": "컨트롤 높이.",
+    "tokens": [
+      {
+        "name": "control-sm",
+        "value": "32px",
+        "usage": "필터 칩, 작은 버튼(헤더의 목록 만들기, 스팀에서 보기)."
+      },
+      {
+        "name": "control-md",
+        "value": "40px",
+        "usage": "버튼, icon-button, 저장 토글, 목록 항목 (데스크톱·태블릿)."
+      },
+      {
+        "name": "control-lg",
+        "value": "44px",
+        "usage": "탭, 입력창, 토스트. 모바일 버튼·icon-button 높이."
+      },
+      {
+        "name": "control-xl",
+        "value": "48px",
+        "usage": "소셜 로그인 버튼."
+      }
+    ]
+  },
+  "iconSize": {
+    "note": "Lucide, 선 두께 1.75.",
+    "tokens": [
+      {
+        "name": "icon-xs",
+        "value": "12px",
+        "usage": "숫자 배지 안 layers."
+      },
+      {
+        "name": "icon-sm",
+        "value": "16px",
+        "usage": "버튼·칩·토글 안 아이콘(check, bookmark, external-link)."
+      },
+      {
+        "name": "icon-md",
+        "value": "20px",
+        "usage": "기본 크기: icon-button, 검색 아이콘, 토스트·에러 아이콘, 소셜 로고 자리."
+      },
+      {
+        "name": "icon-lg",
+        "value": "32px",
+        "usage": "빈 화면 아이콘."
+      }
+    ]
+  },
+  "stroke": {
+    "note": "테두리 두께.",
+    "tokens": [
+      {
+        "name": "stroke-1",
+        "value": "1px",
+        "usage": "기본 테두리와 구분선."
+      },
+      {
+        "name": "stroke-2",
+        "value": "2px",
+        "usage": "포커스 링, 포커스된 입력창, 활성 탭 밑줄, voice bar."
+      }
+    ]
+  },
+  "duration": {
+    "note": "모션 시간. 예외는 스켈레톤 반복(1.4초) 하나다.",
+    "tokens": [
+      {
+        "name": "duration-fast",
+        "value": "120ms",
+        "usage": "hover, 누름."
+      },
+      {
+        "name": "duration-normal",
+        "value": "200ms",
+        "usage": "패널, 다이얼로그, 토스트."
+      }
+    ]
+  },
+  "easing": {
+    "note": "모션 곡선.",
+    "tokens": [
+      {
+        "name": "ease-out",
+        "value": "ease-out",
+        "usage": "모든 전환."
+      }
+    ]
+  },
+  "breakpoint": {
+    "note": "모바일 < 768, 태블릿 768–1023, 데스크톱 ≥ 1024. 페이지 최대 폭 1200. 미디어 쿼리에는 변수를 쓸 수 없어 같은 숫자를 직접 적는다.",
+    "tokens": [
+      {
+        "name": "bp-md",
+        "value": "768px",
+        "usage": "태블릿 시작."
+      },
+      {
+        "name": "bp-lg",
+        "value": "1024px",
+        "usage": "데스크톱 시작."
+      }
+    ]
+  }
+}

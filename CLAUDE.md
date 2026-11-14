@@ -62,3 +62,4 @@ src/
 - 컴포넌트는 `function` 선언으로 쓰고 named export만 쓴다. 라우트 파일(page, layout, loading, error 등)은 Next.js 규칙대로 default export
 - props 타입은 `interface XxxProps`로 정의하고 export한다. union·조건부 타입이 필요할 때만 `type`
 - `src/components/ui/`의 shadcn 파일은 CLI가 만든 형태를 유지한다 (위 두 규칙 예외)
+- shadcn 레지스트리에 없는 Base UI 부품은 shadcn 파일 형식으로 직접 작성해 `src/components/ui/`에 두고, 스타일은 Bonfire 토큰으로 입힌다 (예: `autocomplete.tsx`)

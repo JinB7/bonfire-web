@@ -29,30 +29,27 @@ LLM 코딩 실수를 줄이기 위한 행동 지침. 사소한 작업은 상황�
 ```
 src/
 ├── app/
-│   ├── layout.tsx                  # 앱 전체에 걸친 요소 (Provider, Header, Toaster)
+│   ├── layout.tsx                  # 앱 전체에 걸친 요소 (Header)
 │   ├── page.tsx                    # 홈. 섹션 배치만
 │   ├── _components/                # 이 page 전용 섹션 (SituationFilterSection, ListFeedSection). 라우트마다 page.tsx 옆에 둔다
-│   └── lists/                      # 목록 상세 [id], 만들기 new, 수정 [id]/edit
+│   └── lists/                      # 목록 만들기 new
 ├── features/                       # 도메인 코드는 도메인 폴더에 모은다
-│   └── game-list/                  # 상황별 게임 목록
+│   └── <도메인>/
 │       ├── api/
-│       │   ├── game-list.api.ts    # fetch 함수 (getGameLists, getGameList, createGameList, toggleSave)
-│       │   └── game-list.keys.ts   # 쿼리 키 (gameListKeys)
-│       ├── hooks/                  # 쿼리·뮤테이션 훅 (useGameLists, useGameList, useToggleSave)
-│       ├── components/             # 조합 재료 (ListCard, GameRow, ListForm, SaveToggle)
-│       └── types.ts                # 도메인 타입 (GameList, SituationTag, GetGameListsParams)
+│       │   ├── <도메인>.api.ts     # API 호출 함수
+│       │   └── <도메인>.keys.ts    # 쿼리 키
+│       ├── hooks/                  # 쿼리·뮤테이션 훅
+│       ├── components/             # 조합 재료
+│       └── types/<도메인>.ts       # 도메인 타입
 ├── components/                     # 도메인 무관 공용 UI (Header, PageLayout)
-│   └── ui/                         # shadcn/ui 프리미티브 (Button, Dialog, Popover, Tabs). shadcn CLI가 생성하는 위치
-├── hooks/                          # 앱 공용 훅 (useDebounce)
-├── providers/                      # 앱 공용 Provider (QueryProvider)
-├── styles/                         # Bonfire 토큰 (CSS 변수)
-├── lib/
-│   ├── api/                        # HTTP 인프라만. 엔드포인트 호출은 두지 않는다
-│   │   ├── client.ts               # fetch 래퍼, 에러 처리, 인증
-│   │   └── types.ts                # 공통 응답 타입 (ApiResponse<T>, Page<T>, ApiError)
-│   └── styles/
-│       └── utils.ts                # cn() (Bonfire 클래스를 등록한 tailwind-merge)
-└── types/                          # 전역 선언(.d.ts)만 (env.d.ts)
+│   └── ui/                         # shadcn/ui 프리미티브 (Button, Autocomplete). shadcn CLI가 생성하는 위치
+├── hooks/                          # 앱 공용 훅
+└── lib/
+    ├── api/                        # HTTP 인프라만. 엔드포인트 호출은 두지 않는다
+    │   ├── client.ts               # axios 인스턴스, 응답에서 data만 꺼내는 요청 함수 (api, apiRequest)
+    │   └── types.ts                # 공통 응답 타입 (ApiResponse<T>, ApiError)
+    └── styles/
+        └── utils.ts                # cn() (Bonfire 클래스를 등록한 tailwind-merge)
 ```
 
 ### 규칙

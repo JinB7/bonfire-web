@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/styles/utils";
+import { QueryProvider } from "@/providers/query-provider";
 
 const pretendard = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </Button>
           <Button variant="ghost">로그인</Button>
         </Header>
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );

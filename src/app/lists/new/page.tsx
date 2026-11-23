@@ -1,12 +1,7 @@
-"use client";
-
-import { useState } from "react";
+import { GamesSection } from "@/app/lists/new/_components/games-section";
 import { PageLayout } from "@/components/page-layout";
-import { GameSearch } from "@/features/game-list/components/game-search";
 
 export default function NewListPage() {
-  const [query, setQuery] = useState("");
-
   return (
     <PageLayout>
       <div className="flex flex-col gap-2 pt-8 pb-2">
@@ -20,22 +15,7 @@ export default function NewListPage() {
       <div className="flex flex-wrap items-start gap-12 pb-16">
         {/* form "목록 등록" 자리. 강조된 결과 없이 Enter를 누르면 GameSearch가 제출을 막지 않아 onSubmit에서 preventDefault가 필요하다 */}
         <div className="flex min-w-0 grow-999 basis-140 flex-col">
-          <section
-            aria-labelledby="games-title"
-            className="flex flex-col gap-6 pt-8 pb-12"
-          >
-            <h2 id="games-title" className="text-heading-lg text-fg">
-              게임 담기
-            </h2>
-            {/* 검색 API가 없어 results를 넘기지 않는다(결과 판 숨김). 고른 게임 담기, 5개 찼을 때 disabled·placeholder·helper, error는 담은 게임 상태가 생기면 연결 */}
-            <GameSearch
-              query={query}
-              onQueryChange={setQuery}
-              onSelect={() => setQuery("")}
-              helper="3개 이상, 최대 5개까지 담을 수 있어요."
-            />
-            {/* 담은 게임 N/5 + 조작 안내 → EditGameRow 목록 또는 EmptyState → 설명·대표 이미지 안내 */}
-          </section>
+          <GamesSection />
 
           <section
             aria-labelledby="tags-title"

@@ -12,13 +12,14 @@ const buttonVariants = cva(
         secondary:
           "border-line-strong text-fg hover:bg-surface-selected active:bg-surface-selected disabled:border-line disabled:bg-transparent disabled:text-fg-disabled",
         ghost:
-          "border-transparent px-3 text-fg-secondary hover:bg-surface-selected active:bg-surface-selected disabled:bg-transparent disabled:text-fg-disabled",
+          "border-transparent text-fg-secondary hover:bg-surface-selected active:bg-surface-selected disabled:bg-transparent disabled:text-fg-disabled",
         danger:
           "border-danger bg-danger text-on-danger disabled:border-line-strong disabled:bg-canvas disabled:text-fg-disabled",
       },
       size: {
         md: "h-control-lg md:h-control-md",
         sm: "relative h-control-sm px-3 after:absolute after:top-1/2 after:left-1/2 after:size-[max(100%,var(--control-lg))] after:-translate-x-1/2 after:-translate-y-1/2 md:after:hidden",
+        icon: "size-control-lg md:size-control-md [&_svg:not([class*='size-'])]:size-icon-md",
       },
     },
     compoundVariants: [
@@ -26,6 +27,16 @@ const buttonVariants = cva(
         variant: ["primary", "secondary", "danger"],
         size: "md",
         className: "px-4",
+      },
+      {
+        variant: "ghost",
+        size: "md",
+        className: "px-3",
+      },
+      {
+        variant: "ghost",
+        size: "icon",
+        className: "text-fg-tertiary hover:text-fg aria-pressed:text-fg",
       },
     ],
     defaultVariants: {
